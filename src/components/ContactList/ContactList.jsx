@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { StyledContactList, StyledContactWraper } from './ContactList.styled';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilter, getIsLoading } from 'redux/selectors';
-import { fetchContacts } from '../../redux/auth/operations';
+import { fetchContacts } from '../../redux/operations';
 import ContentLoader from '../ContentLoader/ContentLoader';
 
 export const ContactList = () => {

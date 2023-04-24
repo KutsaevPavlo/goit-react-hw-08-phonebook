@@ -1,18 +1,14 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { Layout } from './Layout/Layout';
+import { Route, Routes } from 'react-router-dom';
+import { useEffect, lazy } from 'react';
 
 import { StyledContac, StyledTitel } from './AppStyled';
-import { Routes, Route } from 'react-router-dom';
-import Layout from 'components/Layout';
-import { lazy, useEffect } from 'react';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
-import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
+import Home from 'pages/Home/home';
 
-const Home = lazy(() => import('../pages/Home/home'));
-const Login = lazy(() => import('../pages/Login/Login'));
-const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
-const Register = lazy(() => import('../pages/Register/Register'));
+const HomePage = lazy(() => import('../pages/Home/home'));
 
 export const App = () => {
   return (
@@ -20,30 +16,15 @@ export const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route
-              path="contacts"
-              element={
-                <PrivateRoute redirectTo="/login" component={<Contacts />} />
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <RestrictedRoute redirectTo="/contacts" component={<Login />} />
-              }
-            />
-            <Route
-              path="register"
-              element={
-                <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<Register />}
-                />
-              }
-            />
+            <Route index element={<HomePage />} />
           </Route>
         </Routes>
+
+        {/* <StyledTitel>Phonebook</StyledTitel>
+        <ContactForm />
+        <StyledContac>Contacts</StyledContac>
+        <Filter />
+        <ContactList /> */}
       </div>
     </section>
   );

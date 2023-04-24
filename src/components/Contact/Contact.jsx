@@ -6,7 +6,7 @@ import {
   StyledNumber,
 } from './Contact.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/auth/operations';
+import { deleteContact } from 'redux/operations';
 
 export const Contact = ({ name, phone, id }) => {
   const distpach = useDispatch();

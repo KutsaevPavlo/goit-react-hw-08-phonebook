@@ -6,9 +6,10 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
 
 import { StyledContac, StyledTitel } from './AppStyled';
-import Home from 'pages/Home/home';
 
 const HomePage = lazy(() => import('../pages/Home/home'));
+const RegisterPage = lazy(() => import('../pages/Register/Register'));
+const LoginPage = lazy(() => import('../pages/Login/Login'));
 
 export const App = () => {
   return (
@@ -17,6 +18,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="login" element={<LoginPage />} />
           </Route>
         </Routes>
 

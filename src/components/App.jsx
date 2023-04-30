@@ -4,7 +4,11 @@
 import { Layout } from './Layout/Layout';
 import { Route, Routes } from 'react-router-dom';
 // import { useEffect, lazy } from 'react';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCurrentUser } from 'redux/auth/operations';
+import { useSelector } from 'react-redux';
+import { selectIsFetchingCurrentUser } from 'redux/auth/selectors';
 
 // import { StyledContac, StyledTitel } from './AppStyled';
 
@@ -14,24 +18,27 @@ const LoginPage = lazy(() => import('../pages/Login/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
-  return (
-    <section>
-      <div>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="register" element={<RegisterPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
-          </Route>
-        </Routes>
+  const getIsFetchingCurrentUser = useSelector(selectIsFetchingCurrentUser);
+  // console.log(getIsFetchingCurrentUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
-        {/* <StyledTitel>Phonebook</StyledTitel>
-        <ContactForm />
-        <StyledContac>Contacts</StyledContac>
-        <Filter />
-        <ContactList /> */}
-      </div>
-    </section>
+  return (
+    !getIsFetchingCurrentUser && (
+      <section>
+        <div>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="register" element={<RegisterPage />} />
+              <Route path="login" element={<LoginPage />} />
+              <Route path="contacts" element={<ContactsPage />} />
+            </Route>
+          </Routes>
+        </div>
+      </section>
+    )
   );
 };

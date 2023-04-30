@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { BASE_URL } from './constants/constants';
 
 export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'connections-api.herokuapp.com',
+    baseUrl: BASE_URL,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 

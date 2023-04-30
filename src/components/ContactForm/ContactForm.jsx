@@ -7,15 +7,21 @@ import {
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
+// import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
+import {
+  useFetchContactsQuery,
+  useAddContactMutation,
+} from 'redux/servises/contactApi';
 
 export const ContactForm = () => {
   const [number, setNumber] = useState('');
   const [name, setName] = useState('');
 
-  const contacts = useSelector(getContacts);
+  // const contacts = useSelector(getContacts);
+  const [addContact] = useAddContactMutation();
   const dispatch = useDispatch();
+  const { data = [] } = useFetchContactsQuery();
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -37,7 +43,7 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const formattedName = name.toLowerCase();
-    const isNewContact = contacts.every(
+    const isNewContact = data.every(
       contact => contact.name.toLowerCase() !== formattedName
     );
 
@@ -45,7 +51,9 @@ export const ContactForm = () => {
       alert(`${name} is already in contacts.`);
       return;
     }
-    dispatch(addContact({ name, number }));
+    addContact({ name, number });
+    // addContact({ ...values })
+    // dispatch(addContact({ name, number }));
 
     reset();
   };

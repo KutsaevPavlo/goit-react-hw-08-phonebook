@@ -5,18 +5,21 @@ import {
   StyledName,
   StyledNumber,
 } from './Contact.styled';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { useDeleteContactMutation } from 'redux/servises/contactApi';
+// import { useDispatch } from 'react-redux';
+// import { deleteContact } from 'redux/operations';
 
-export const Contact = ({ name, phone, id }) => {
-  const distpach = useDispatch();
+export const Contact = ({ name, number, id }) => {
+  const [deleteContact] = useDeleteContactMutation();
+  // const distpach = useDispatch();
   return (
     <StyledContacts>
       <StyledName>{name}: </StyledName>
-      <StyledNumber>{phone} </StyledNumber>
+      <StyledNumber>{number} </StyledNumber>
       <StyledButton
         onClick={() => {
-          distpach(deleteContact({ id, name }));
+          // distpach(deleteContact({ id, name }));
+          deleteContact({ id, name });
         }}
       >
         Delete

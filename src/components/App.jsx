@@ -10,6 +10,7 @@ import { fetchCurrentUser } from 'redux/auth/operations';
 import { useSelector } from 'react-redux';
 import { selectIsFetchingCurrentUser } from 'redux/auth/selectors';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 
 // import { StyledContac, StyledTitel } from './AppStyled';
 
@@ -33,12 +34,33 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />
-              <Route path="register" element={<RegisterPage />} />
-              <Route path="login" element={<LoginPage />} />
-              {/* <Route path="contacts" element={<ContactsPage />} /> */}
-              <PrivateRoute path="contacts">
-                <ContactsPage />
-              </PrivateRoute>
+              <Route
+                path="register"
+                element={
+                  <RestrictedRoute
+                    component={<RegisterPage />}
+                    redirectTo="/contacts"
+                  ></RestrictedRoute>
+                }
+              />
+              <Route
+                path="login"
+                element={
+                  <RestrictedRoute
+                    component={<LoginPage />}
+                    redirectTo="/contacts"
+                  ></RestrictedRoute>
+                }
+              />
+              <Route
+                path="contacts"
+                element={
+                  <PrivateRoute
+                    component={<ContactsPage />}
+                    redirectTo="/login"
+                  ></PrivateRoute>
+                }
+              />
             </Route>
           </Routes>
         </div>

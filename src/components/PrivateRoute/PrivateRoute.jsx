@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { Route } from 'react-router-dom';
-import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { Navigate } from 'react-router-dom';
 
-export default function PrivateRoute({ component, ...routeProps }) {
+import {
+  selectIsLoggedIn,
+  selectIsFetchingCurrentUser,
+} from 'redux/auth/selectors';
+
+export default function PrivateRoute({ component, redirectTo = '/' }) {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  return (
-    <Route {...routeProps}>
-      isLoggedIn ? component : <Redirect to="/login" />
-    </Route>
-  );
+  const isFetching = useSelector(selectIsFetchingCurrentUser);
+  const shouldRedierct = !isLoggedIn && !isFetching;
+  return shouldRedierct ? <Navigate to={redirectTo} /> : component;
 }
 
 PrivateRoute.propTypes = {

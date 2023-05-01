@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/operations';
 import { useSelector } from 'react-redux';
 import { selectIsFetchingCurrentUser } from 'redux/auth/selectors';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 // import { StyledContac, StyledTitel } from './AppStyled';
 
@@ -34,7 +35,10 @@ export const App = () => {
               <Route index element={<HomePage />} />
               <Route path="register" element={<RegisterPage />} />
               <Route path="login" element={<LoginPage />} />
-              <Route path="contacts" element={<ContactsPage />} />
+              {/* <Route path="contacts" element={<ContactsPage />} /> */}
+              <PrivateRoute path="contacts">
+                <ContactsPage />
+              </PrivateRoute>
             </Route>
           </Routes>
         </div>

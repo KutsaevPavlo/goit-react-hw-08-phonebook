@@ -10,7 +10,7 @@ export const StyledFilter = styled.label`
 
 export const StyledFilterInput = styled.input`
   width: 150px;
-  height: 20px;
+  height: 15px;
   margin-left: 20px;
   border-radius: 4px;
   border: solid 2px #4caf50;

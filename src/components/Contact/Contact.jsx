@@ -18,7 +18,6 @@ export const Contact = ({ name, number, id }) => {
       <StyledNumber>{number} </StyledNumber>
       <StyledButton
         onClick={() => {
-          // distpach(deleteContact({ id, name }));
           deleteContact({ id, name });
         }}
       >

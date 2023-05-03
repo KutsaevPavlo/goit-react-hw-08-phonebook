@@ -11,6 +11,7 @@ export const StyledContactWraper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 2px solid black;
+  margin-left: 70px;
+
   padding: 5px;
 `;

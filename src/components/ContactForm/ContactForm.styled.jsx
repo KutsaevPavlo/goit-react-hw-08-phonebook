@@ -39,6 +39,7 @@ export const StyledFormBtm = styled.button`
   border-radius: 8px;
   height: 15px;
   align-items: center;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 5px green;

@@ -1,27 +1,38 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  width: 300px;
-  height: 200px;
   margin-left: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-  border: solid 2px black;
+  align-items: center;
   padding: 5px;
 `;
 
 export const StyledFormLabel = styled.label`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const StyledFormInput = styled.input`
   width: 150px;
+  margin-left: 20px;
+  border-color: #4caf50;
 `;
 
 export const StyledFormBtm = styled.button`
-  width: 150px;
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  border-radius: 8px;
+  height: 15px;
+  align-items: center;
 
   &:hover {
     box-shadow: 0 0 5px green;

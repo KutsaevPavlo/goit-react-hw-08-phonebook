@@ -18,7 +18,13 @@ export const StyledFormLabel = styled.label`
 export const StyledFormInput = styled.input`
   width: 150px;
   margin-left: 20px;
-  border-color: #4caf50;
+  border-radius: 4px;
+  border: solid 2px #4caf50;
+
+  &:hover,
+  focus {
+    box-shadow: 0 0 5px green;
+  }
 `;
 
 export const StyledFormBtm = styled.button`
@@ -37,4 +43,18 @@ export const StyledFormBtm = styled.button`
   &:hover {
     box-shadow: 0 0 5px green;
   }
+`;
+
+export const StyledFormItems = styled.div`
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  height: 35px;
+  width: 90px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;

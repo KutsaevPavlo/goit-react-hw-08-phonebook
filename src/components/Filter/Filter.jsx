@@ -1,4 +1,8 @@
-import { StyledFilter } from './Filter.styled';
+import {
+  StyledFilter,
+  StyledFilterInput,
+  StyledFilterItems,
+} from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from 'redux/selectors';
 import { SelectFilter } from 'redux/filterSlice';
@@ -15,8 +19,8 @@ export const Filter = () => {
   return (
     <>
       <StyledFilter>
-        Find contacts by name
-        <input
+        <StyledFilterItems>Find contacts by name</StyledFilterItems>
+        <StyledFilterInput
           type="text"
           name="filter"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

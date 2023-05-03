@@ -3,6 +3,7 @@ import {
   StyledFormLabel,
   StyledFormInput,
   StyledFormBtm,
+  StyledFormItems,
 } from './ContactForm.styled';
 
 import { useState } from 'react';
@@ -61,7 +62,7 @@ export const ContactForm = () => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledFormLabel>
-        Name
+        <StyledFormItems>Name</StyledFormItems>
         <StyledFormInput
           type="text"
           name="name"
@@ -73,7 +74,7 @@ export const ContactForm = () => {
         />
       </StyledFormLabel>
       <StyledFormLabel>
-        Number
+        <StyledFormItems>Number</StyledFormItems>
         <StyledFormInput
           type="tel"
           name="number"

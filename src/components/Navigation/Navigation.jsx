@@ -5,10 +5,10 @@ export const Navigation = () => {
   return (
     <nav>
       <NavLink className={css.link} to="/">
-        Home
+        <div className={css.items}>Home</div>
       </NavLink>
       <NavLink className={css.link} to="/contacts">
-        Contacts
+        <div className={css.items}>Contacts</div>
       </NavLink>
     </nav>
   );

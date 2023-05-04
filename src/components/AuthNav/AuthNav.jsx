@@ -17,11 +17,11 @@ export const AuthNav = () => {
       ) : (
         <div>
           <NavLink className={css.link} to="/register">
-            Register
+            <div className={css.items}>Register</div>
           </NavLink>
 
           <NavLink className={css.link} to="/login">
-            Log In
+            <div className={css.items}>Log In</div>
           </NavLink>
         </div>
       )}

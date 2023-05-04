@@ -4,20 +4,15 @@ import { useDispatch } from 'react-redux';
 
 import { StyledContactList, StyledContactWraper } from './ContactList.styled';
 import { useSelector } from 'react-redux';
-import {
-  getContacts,
-  getFilter,
-  getIsLoading,
-} from '../../redux/auth/selectors';
+import { getFilter, getIsLoading } from '../../redux/auth/selectors';
 import { fetchContacts } from '../../redux/operations';
 import ContentLoader from '../ContentLoader/ContentLoader';
 import { useFetchContactsQuery } from 'redux/servises/contactApi';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
   const filter = useSelector(getFilter);
-  const { data = [], isFetching } = useFetchContactsQuery();
+  const { data = [] } = useFetchContactsQuery();
 
   const dispatch = useDispatch();
 

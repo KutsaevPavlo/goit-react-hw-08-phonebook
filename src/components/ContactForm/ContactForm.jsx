@@ -7,9 +7,7 @@ import {
 } from './ContactForm.styled';
 
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-// import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+
 import {
   useFetchContactsQuery,
   useAddContactMutation,
@@ -21,7 +19,7 @@ export const ContactForm = () => {
 
   // const contacts = useSelector(getContacts);
   const [addContact] = useAddContactMutation();
-  const dispatch = useDispatch();
+
   const { data = [] } = useFetchContactsQuery();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -53,8 +51,6 @@ export const ContactForm = () => {
       return;
     }
     addContact({ name, number });
-    // addContact({ ...values })
-    // dispatch(addContact({ name, number }));
 
     reset();
   };

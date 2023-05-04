@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import css from './AuthNav.module.css';
-import { selectUsername, selectIsLoggedIn } from 'redux/auth/selectors';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 export const AuthNav = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -25,13 +25,6 @@ export const AuthNav = () => {
           </NavLink>
         </div>
       )}
-      {/* <NavLink className={css.link} to="/register">
-        Register
-      </NavLink>
-
-      <NavLink className={css.link} to="/login">
-        Log In
-      </NavLink> */}
     </div>
   );
 };

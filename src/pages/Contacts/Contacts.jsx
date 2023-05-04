@@ -15,7 +15,7 @@ export default function Contacts() {
     <div>
       {isLoggedIn ? (
         <div>
-          <StyledTitel>{username} phonebook </StyledTitel>
+          <StyledTitel>{username} phonebook: </StyledTitel>
           <ContactForm />
           <StyledContac>Contacts</StyledContac>
           <Filter />

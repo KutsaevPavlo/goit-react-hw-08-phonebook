@@ -17,7 +17,6 @@ export const ContactForm = () => {
   const [number, setNumber] = useState('');
   const [name, setName] = useState('');
 
-  // const contacts = useSelector(getContacts);
   const [addContact] = useAddContactMutation();
 
   const { data = [] } = useFetchContactsQuery();

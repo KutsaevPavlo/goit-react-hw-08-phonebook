@@ -18,6 +18,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     const toastId = toast.loading('Request in processing');
+
     try {
       const { data } = await axios.post('/users/signup', credentials);
       token.set(data.token);

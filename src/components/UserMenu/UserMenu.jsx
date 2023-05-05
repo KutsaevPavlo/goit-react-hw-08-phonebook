@@ -1,4 +1,3 @@
-// import { useAuth } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './UserMenu.module.css';
 import { selectUsername, selectIsLoggedIn } from 'redux/auth/selectors';

@@ -1,9 +1,6 @@
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { ContactList } from './ContactList/ContactList';
-// import { Filter } from './Filter/Filter';
 import { Layout } from './Layout/Layout';
 import { Route, Routes } from 'react-router-dom';
-// import { useEffect, lazy } from 'react';
+
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/operations';
@@ -12,8 +9,6 @@ import { selectIsFetchingCurrentUser } from 'redux/auth/selectors';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 
-// import { StyledContac, StyledTitel } from './AppStyled';
-
 const HomePage = lazy(() => import('../pages/Home/home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));
 const LoginPage = lazy(() => import('../pages/Login/Login'));
@@ -21,7 +16,7 @@ const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
   const getIsFetchingCurrentUser = useSelector(selectIsFetchingCurrentUser);
-  // console.log(getIsFetchingCurrentUser);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCurrentUser());

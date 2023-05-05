@@ -4,7 +4,7 @@ import {
   StyledFilterItems,
 } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from 'redux/selectors';
+import { getFilter } from 'redux/auth/selectors';
 import { SelectFilter } from 'redux/filterSlice';
 
 export const Filter = () => {
